@@ -1,0 +1,67 @@
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  &:hover,
+  &:focus {
+    color: rgb(128, 128, 128);
+  }
+}
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+}
+
+.section {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+    'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.2;
+  background-color: #fff;
+  color: #424242;
+  max-width: 960px;
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.compendium::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-size: contain;
+  background-image: url('../images/essay.png');
+  margin-right: 5px;
+}
+.video::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-size: contain;
+  background-image: url('../images/video.png');
+  margin-right: 5px;
+}
+.resources::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-size: contain;
+  background-image: url('../images/data-storage.png');
+  margin-right: 5px;
+}
+
+.class-39::after {
+  content: '*39';
+  display: inline-block;
+  font-weight: bold;
+  padding: 0 3px;
+  background-color: rgb(255, 196, 196);
+  border-radius: 3px;
+  margin-left: 5px;
+}
