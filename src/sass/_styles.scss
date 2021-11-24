@@ -2,6 +2,10 @@ ul {
   list-style: none;
 }
 
+li {
+  margin-bottom: 5px;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -13,7 +17,7 @@ a {
 
 .filters {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .section {
@@ -23,37 +27,29 @@ a {
   background-color: #fff;
   color: #424242;
   max-width: 960px;
-  padding: 20px;
+  padding: 10px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.compendium::before {
-  content: '';
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  background-size: contain;
-  background-image: url('../images/essay.png');
-  margin-right: 5px;
-}
-.video::before {
-  content: '';
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  background-size: contain;
-  background-image: url('../images/video.png');
-  margin-right: 5px;
-}
+.compendium::before,
+.video::before,
 .resources::before {
   content: '';
   display: inline-block;
   width: 24px;
   height: 24px;
   background-size: contain;
-  background-image: url('../images/data-storage.png');
   margin-right: 5px;
+}
+.compendium::before {
+  background-image: url('../images/essay.png');
+}
+.video::before {
+  background-image: url('../images/video.png');
+}
+.resources::before {
+  background-image: url('../images/data-storage.png');
 }
 
 .class-39::after {
@@ -64,4 +60,25 @@ a {
   background-color: rgb(255, 196, 196);
   border-radius: 3px;
   margin-left: 5px;
+}
+
+.btn {
+  padding: 10px;
+  background-color: rgb(0, 147, 169);
+  color: white;
+  border: 0;
+  border-radius: 5px;
+
+  &:hover,
+  &:focus {
+    box-shadow: 2px 2px 5px 1px rgba(0, 147, 169, 0.5);
+  }
+
+  &:disabled {
+    background-color: rgb(173, 227, 230);
+  }
+}
+
+.is-hidden {
+  display: none;
 }

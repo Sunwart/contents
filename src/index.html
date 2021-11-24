@@ -13,14 +13,17 @@
   </head>
   <body>
     <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
-    <ul class="section filters">
-      <li class="compendium">Конспект GoIT</li>
-      <li class="video">Все видео GoIT</li>
-      <li class="video class-39">Видео потока</li>
-      <li class="resources">Разные ресурсы</li>
-    </ul>
-    <include src="./partials/tags.html"></include>
-    <include src="./partials/styles.html"></include>
+    <div class="section filters">
+      <button type="button" class="btn" data-compendium>Конспект GoIT</button>
+      <button type="button" class="btn" data-video>Видео GoIT</button>
+      <button type="button" class="btn" data-others>Внешние ресурсы</button>
+      <button type="button" class="btn" disabled="true" data-all>Все ресурсы</button>
+    </div>
+    <div id="all">
+      <include src="./partials/tags.html"></include>
+      <include src="./partials/styles.html"></include>
+    </div>
+    <section class="section"><ul id="filtered"></ul></section>
     <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
     <script src="./index.js"></script>
   </body>
