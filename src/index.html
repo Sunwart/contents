@@ -37,6 +37,7 @@
             <li><a href="./my-library.html" id="my-lib-page" class="menu-link">My library</a></li>
           </ul>
         </nav>
+
         <div class="form-container">
           <form name="search" class="search-form" autocomplete="off">
             <input
@@ -51,19 +52,16 @@
             </button>
           </form>
         </div>
+
+        <p class="search-notification">
+          Search result was NOT successful. Enter the correct movie name and try again!
+        </p>
       </div>
     </header>
-    <main>
-      <svg width="16" height="16">
-        <use href="./images/icons.svg#icon-arrow"></use>
-      </svg>
-      <svg width="30" height="30">
-        <use href="./images/icons.svg#icon-close"></use>
-      </svg>
-      <svg width="14" height="13">
-        <use href="./images/icons.svg#icon-heart"></use>
-      </svg>
-    </main>
+
+    <include src="./partials/main.html"></include>
+
+    <include src="./partials/footer.html"></include>
 
     <script src="./index.js"></script>
   </body>

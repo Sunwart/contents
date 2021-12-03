@@ -145,6 +145,7 @@
 .form-container {
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 25px;
   position: relative;
   width: 280px;
   @media screen and (min-width: 768px) {
@@ -161,6 +162,7 @@
   width: 255px;
   font-size: 14px;
   line-height: 1.14;
+  font-weight: 400;
 
   &::placeholder {
     color: var(--color-main-light);
@@ -169,17 +171,6 @@
   @media screen and (min-width: 768px) {
     width: 311px;
   }
-}
-
-.search-btn {
-  outline: none;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-}
-
-.search-btn-icon {
-  fill: var(--color-main-light);
 }
 
 .search-form {
@@ -196,5 +187,53 @@
     @media screen and (min-width: 768px) {
       width: 336px;
     }
+  }
+}
+
+.search-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.search-btn-icon {
+  fill: var(--color-main-light);
+}
+
+.search-notification {
+  text-align: center;
+  color: red;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.14;
+}
+
+.filter-buttons-container {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 25px;
+  width: 280px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter-button {
+  color: var(--color-main-light);
+  background-color: var(--color-brand);
+  border-color: transparent;
+  padding: 14px 10px;
+  min-width: 130px;
+  border-radius: 5px;
+
+  &:disabled {
+    background-color: transparent;
+    box-shadow: none;
+    border-color: var(--color-main-light);
+    border-width: 0.5px;
+  }
+
+  &:hover,
+  &:focus {
+    box-shadow: var(--shadow);
   }
 }
