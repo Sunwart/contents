@@ -1,21 +1,18 @@
 .footer {
   background-color: var(--color-add-light);
-  display: block;
   width: 100%;
-  position: absolute;
-  bottom: 0;
-  padding: 30px 50px;
-
-  & p {
-    color: var(--color-add-dark);
-    text-align: center;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 1.14;
-  }
+  padding: 30px 40px;
 }
 
 .heart-icon {
   fill: var(--color-brand);
   margin: 3px 3px 0 3px;
+}
+
+.copyright {
+  color: var(--color-add-dark);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
 }

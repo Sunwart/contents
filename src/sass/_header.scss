@@ -1,11 +1,20 @@
-.main-page-header {
-  background-color: var(--color-main-dark);
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-    url('../images/header-bg-img320.jpg');
+.main-page-header,
+.my-lib-header {
   height: 230px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  margin-bottom: 20px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 60px;
+  }
+}
+
+.main-page-header {
+  background-color: var(--color-main-dark);
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    url('../images/header-bg-img320.jpg');
 
   @media screen and (min-device-pixel-ratio: 2),
     screen and (min-resolution: 192dpi),
@@ -43,10 +52,6 @@
   background-color: var(--color-main-dark);
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
     url('../images/my-lib-header-bg320.jpg');
-  height: 230px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
 
   @media screen and (min-device-pixel-ratio: 2),
     screen and (min-resolution: 192dpi),
@@ -224,12 +229,17 @@
   padding: 14px 10px;
   min-width: 130px;
   border-radius: 5px;
+  border-width: 0.5px;
+  font-size: 12px;
+  line-height: 1.33;
+  font-weight: 500;
+  text-align: center;
+  text-transform: uppercase;
 
   &:disabled {
     background-color: transparent;
     box-shadow: none;
     border-color: var(--color-main-light);
-    border-width: 0.5px;
   }
 
   &:hover,
