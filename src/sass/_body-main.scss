@@ -156,7 +156,7 @@
 }
 
 .page-buttons li:last-child {
-  margin-left: 15px;
+  margin-left: 10px;
 
   &::before {
     content: ' ... ';
@@ -168,7 +168,7 @@
 }
 
 .page-buttons li:first-child {
-  margin-right: 15px;
+  margin-right: 10px;
 
   &::after {
     content: ' ... ';
