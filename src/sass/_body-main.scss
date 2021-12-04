@@ -99,3 +99,82 @@
   border-radius: 5px;
   padding: 1px 6px;
 }
+
+// ----------------- ПАГІНАЦІЯ -----------------------
+.pages {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+  @media screen and(min-width: 768px) {
+    margin-bottom: 60px;
+  }
+}
+
+.page-buttons {
+  display: flex;
+}
+
+.forward-arrow {
+  transform: rotate(180deg);
+  fill: currentColor;
+}
+.backward-arrow {
+  fill: currentColor;
+}
+
+.arrow-button {
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  background-color: var(--color-add-light);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color var(--effect-duration) var(--timing-function),
+    color var(--effect-duration) var(--timing-function);
+
+  &:hover {
+    background-color: var(--color-add-dark);
+    color: var(--color-main-light);
+  }
+}
+
+.page-buttons__elem {
+  padding: 10px 16px;
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  transition: background-color var(--effect-duration) var(--timing-function),
+    color var(--effect-duration) var(--timing-function);
+
+  &:active,
+  &:hover,
+  &:focus {
+    background-color: var(--color-brand);
+    color: var(--color-main-light);
+  }
+}
+
+.page-buttons li:last-child {
+  margin-left: 15px;
+
+  &::before {
+    content: ' ... ';
+  }
+
+  @media screen and (max-width: 320px) {
+    display: none;
+  }
+}
+
+.page-buttons li:first-child {
+  margin-right: 15px;
+
+  &::after {
+    content: ' ... ';
+  }
+
+  @media screen and (max-width: 320px) {
+    display: none;
+  }
+}
