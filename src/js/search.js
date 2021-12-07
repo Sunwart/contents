@@ -1,4 +1,4 @@
-import filmsAPIService from './api-service';
+import filmsAPIService from './API-service';
 import render from './rendering';
 
 const films = new filmsAPIService();
