@@ -6,7 +6,7 @@ genres.getGenres();
 export default function render(data) {
   const markup = data.films
     .map(film => {
-      //постер
+      // постер
       if (!film.poster_path) {
         film.poster_url = `src='https://image.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-5529.jpg'`;
       } else {
@@ -51,4 +51,5 @@ export default function render(data) {
     })
     .join(' ');
   document.querySelector('.films').innerHTML = markup;
+  return data;
 }

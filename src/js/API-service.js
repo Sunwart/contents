@@ -3,13 +3,15 @@ import axios from 'axios';
 export default class filmsAPIService {
   constructor() {
     this.currentPage = 1; // можна використовувати для пагінації
-    this.lang = 'uk';
+    this.lang = 'en';
     this.genres = [{ id: 0, name: 'uncategorized' }];
+    this.allPages = 1000;
+    this.searchQuery = '';
   }
 
   getTrendingFilms() {
     return axios.get(
-      `https://api.themoviedb.org/3/trending/movie/day?api_key=daf1fe8995a61d2fecc007eaa464ca98&page=${this.currentPage}&language=${this.lang}`,
+      `https://api.themoviedb.org/3/trending/movie/week?api_key=daf1fe8995a61d2fecc007eaa464ca98&page=${this.currentPage}&language=${this.lang}`,
     );
   }
 
@@ -32,6 +34,14 @@ export default class filmsAPIService {
     this.genres.push(...genres.data.genres);
   }
 
+  get query() {
+    return this.searchQuery;
+  }
+
+  set query(inputQuery) {
+    this.searchQuery = inputQuery;
+  }
+
   get allGenres() {
     return this.genres;
   }
@@ -42,6 +52,14 @@ export default class filmsAPIService {
 
   set page(pageNumber) {
     this.currentPage = pageNumber;
+  }
+
+  get pagesNumber() {
+    return this.allPage;
+  }
+
+  set pagesNumber(pageNumber) {
+    this.allPage = pageNumber;
   }
 
   get language() {
