@@ -1,4 +1,5 @@
-import filmsAPIService from '../js/API-service';
+import filmsAPIService from './api-service';
+import render from './rendering';
 
 const films = new filmsAPIService();
 
@@ -10,17 +11,26 @@ export const searchFilms = function (event) {
     .then(res => {
       if (res.data.total_results === 0) {
         onInvalidSearchQuery();
-        return;
+        return error;
       }
-      console.log('фільми за запитом: ', res.data);
-      // підказки тут https://docs.google.com/document/d/1Hrx6Rgc6hSu4L69pmSNMm8UyLrBKyviCQcfNAZEx5Q4/edit?usp=sharing
+      const data = {
+        totalpages: res.data.total_pages,
+        total_results: res.data.total_results,
+        page: res.data.page,
+        films: res.data.results,
+      };
+      return data;
     })
-    .catch(error => onInvalidSearchQuery());
+    .then(render)
+    .catch(error => {
+      onInvalidSearchQuery();
+    });
 };
 
 const onInvalidSearchQuery = function () {
   document.querySelector('.search-notification').innerHTML =
     'Search result was NOT successful. Enter the correct movie name and try again!';
+  document.querySelector('.films').innerHTML = '';
 };
 const onValidSearchQuery = function () {
   document.querySelector('.search-notification').innerHTML = '';

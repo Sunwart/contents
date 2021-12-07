@@ -79,6 +79,7 @@
 
 .film-name {
   color: var(--color-main-dark);
+  font-weight: 500;
   font-size: 12px;
   line-height: 1.17;
   text-transform: uppercase;
@@ -86,6 +87,7 @@
 
 .film-info {
   color: var(--color-brand);
+  font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
   margin-right: 10px;
@@ -94,10 +96,18 @@
 .film-raiting {
   background-color: var(--color-brand);
   color: var(--color-main-light);
+  font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
   border-radius: 5px;
   padding: 1px 6px;
+}
+
+.film-year {
+  margin-left: 5px;
+}
+.film-genres {
+  margin-right: 5px;
 }
 
 // ----------------- ПАГІНАЦІЯ -----------------------
