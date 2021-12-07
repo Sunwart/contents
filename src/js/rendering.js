@@ -18,7 +18,6 @@ export default function render(data) {
       if (film.genre_ids.length === 0) {
         temp.push({ id: 0, name: 'uncategorized' });
       }
-
       for (let i = 0; i < film.genre_ids.length && i < 2; i += 1) {
         temp.push(...genres.allGenres.filter(genre => genre.id === film.genre_ids[i]));
       }
