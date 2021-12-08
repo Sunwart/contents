@@ -6,14 +6,14 @@ genres.getGenres();
 export default function render(data) {
   const markup = data.films
     .map(film => {
-      // постер
+      // poster
       if (!film.poster_path) {
         film.poster_url = `src='https://image.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-5529.jpg'`;
       } else {
         film.poster_url = `src='https://www.themoviedb.org/t/p/w500/${film.poster_path}'`;
       }
 
-      //жанри
+      //genres
       const temp = [];
       if (film.genre_ids.length === 0) {
         temp.push({ id: 0, name: 'uncategorized' });
@@ -23,7 +23,7 @@ export default function render(data) {
       }
       const genresByNames = temp.map(el => el.name).join(', ');
 
-      //дата виходу
+      //year
       if (!film.release_date) {
         film.year = '';
       } else {
@@ -31,7 +31,7 @@ export default function render(data) {
         film.year = `|<span class="film-year">${film.release_date}</span>`;
       }
 
-      //назва
+      //title
       if (film.title.length > 35) {
         film.title = film.title.slice(0, 35) + '...';
       }

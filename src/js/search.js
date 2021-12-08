@@ -1,5 +1,6 @@
 import filmsAPIService from './API-service';
 import render from './rendering';
+import scrolling from './scroll';
 
 const films = new filmsAPIService();
 
@@ -52,7 +53,7 @@ const onValidSearchQuery = function () {
 };
 
 function onPageChange(event) {
-  console.log(event.target);
+  document.querySelector('.search-form').value = films.query;
   films.page = Number(event.target.value);
   films
     .getFilmsByQuery(films.query)
@@ -65,11 +66,12 @@ function onPageChange(event) {
       return data;
     })
     .then(render);
+  scrolling();
 }
 
 function onBackwardArrowClick(event) {
-  console.log(event.target);
   if (films.page > 1) {
+    document.querySelector('.search-form').value = films.query;
     films.page -= 1;
     films
       .getFilmsByQuery(films.query)
@@ -83,12 +85,13 @@ function onBackwardArrowClick(event) {
       })
       .then(render);
     pageInput.value = films.page;
+    scrolling();
   }
 }
 
 function onForwardArrowClick(event) {
-  console.log(event.target);
   if (films.page < films.allPages) {
+    document.querySelector('.search-form').value = films.query;
     films.page += 1;
     films
       .getFilmsByQuery(films.query)
@@ -102,11 +105,6 @@ function onForwardArrowClick(event) {
       })
       .then(render);
     pageInput.value = films.page;
+    scrolling();
   }
 }
-
-// document.querySelector('.search-form').addEventListener('submit', () => {
-//   pageInput.removeEventListener('change', onPageChange);
-//   backwardArrow.removeEventListener('click', onBackwardArrowClick);
-//   forwardArrow.removeEventListener('click', onForwardArrowClick);
-// });

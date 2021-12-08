@@ -1,5 +1,6 @@
 import filmsAPIService from './API-service';
 import render from './rendering';
+import scrolling from './scroll';
 
 const trendingFilms = new filmsAPIService();
 const pageInput = document.querySelector('.page-input');
@@ -12,7 +13,7 @@ pageInput.addEventListener('change', onPageChange);
 backwardArrow.addEventListener('click', onBackwardArrowClick);
 forwardArrow.addEventListener('click', onForwardArrowClick);
 
-export const popularFilms = function (event) {
+export const popularFilms = function () {
   trendingFilms
     .getTrendingFilms()
     .then(res => {
@@ -27,26 +28,26 @@ export const popularFilms = function (event) {
 };
 
 function onPageChange(event) {
-  console.log(event.target);
   trendingFilms.page = Number(event.target.value);
   popularFilms();
+  scrolling();
 }
 
 function onBackwardArrowClick(event) {
-  console.log(event.target);
   if (trendingFilms.page > 1) {
     trendingFilms.page -= 1;
     popularFilms();
     pageInput.value = trendingFilms.page;
+    scrolling();
   }
 }
 
 function onForwardArrowClick(event) {
-  console.log(event.target);
   if (trendingFilms.page < trendingFilms.allPages) {
     trendingFilms.page += 1;
     popularFilms();
     pageInput.value = trendingFilms.page;
+    scrolling();
   }
 }
 
