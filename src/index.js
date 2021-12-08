@@ -6,6 +6,8 @@ import './js/pagination';
 
 export const allFilms = new filmsAPIService();
 
+allFilms.getGenres();
+
 //ПЕРША ЗАГРУЗКА
 document.addEventListener('DOMContentLoaded', popularFilms);
 

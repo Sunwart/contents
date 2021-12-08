@@ -1,5 +1,4 @@
 import { allFilms } from '../index';
-import { searchFilms } from './search';
 import { popularFilms } from './trending-films';
 
 import render from './rendering';

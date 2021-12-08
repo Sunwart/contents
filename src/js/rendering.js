@@ -1,7 +1,4 @@
-import filmsAPIService from './API-service';
-
-const genres = new filmsAPIService();
-genres.getGenres();
+import { allFilms } from '../index';
 
 export default function render(data) {
   const markup = data.films
@@ -19,7 +16,7 @@ export default function render(data) {
         temp.push({ id: 0, name: 'uncategorized' });
       }
       for (let i = 0; i < film.genre_ids.length && i < 2; i += 1) {
-        temp.push(...genres.allGenres.filter(genre => genre.id === film.genre_ids[i]));
+        temp.push(...allFilms.allGenres.filter(genre => genre.id === film.genre_ids[i]));
       }
       const genresByNames = temp.map(el => el.name).join(', ');
 
