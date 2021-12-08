@@ -75,4 +75,4 @@ module.exports=require("./lib/axios");
 },{"./API-service":"ZbUy","./rendering":"pZO9","./scroll":"N8YO"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss");var e=t(require("./js/API-service")),r=require("./js/search"),s=require("./js/trending-films");function t(e){return e&&e.__esModule?e:{default:e}}const i=document.querySelector(".search-form");i.addEventListener("submit",r.searchFilms),document.addEventListener("DOMContentLoaded",s.popularFilms);
 },{"./sass/main.scss":"clu1","./js/API-service":"ZbUy","./js/search":"HU2o","./js/trending-films":"V7UT"}]},{},["Focm"], null)
-//# sourceMappingURL=/contents/src.3cbfe406.js.map
+//# sourceMappingURL=/contents/src.20d1b842.js.map
