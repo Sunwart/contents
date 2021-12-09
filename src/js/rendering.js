@@ -1,4 +1,5 @@
 import { allFilms } from '../index';
+import modal from './modal';
 
 export default function render(data) {
   const markup = data.films
@@ -32,8 +33,7 @@ export default function render(data) {
       if (film.title.length > 35) {
         film.title = film.title.slice(0, 35) + '...';
       }
-
-      return `<li class="film-card" id="${film.id}">
+      return `<li class="film-card" data-modal-open="${film.id}">
                     <img ${film.poster_url}
                         alt="${film.title} - movie poster"
                         class="film-card-img"/>
@@ -47,6 +47,10 @@ export default function render(data) {
                 </li>`;
     })
     .join(' ');
-  document.querySelector('.films').innerHTML = markup;
+  const filmCards = document.querySelector('.films');
+  filmCards.innerHTML = markup;
+  for (let arrID = 0; arrID < 20; arrID += 1) {
+    filmCards.children[arrID].addEventListener('click', modal);
+  }
   return data;
 }

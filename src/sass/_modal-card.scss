@@ -2,7 +2,19 @@
   display: block;
   height: 1100px;
   background-color: rgba(129, 129, 129, 0.5);
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-bottom: 0;
+  right: 0;
+  opacity: 1;
+  transition: opacity 500ms var(--timing-function);
+}
+
+.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
 }
 
 .close-btn {
@@ -33,7 +45,7 @@
   }
 
   @media screen and (min-width: 1024px) {
-    width: 882px;
+    width: 884px;
     height: 568x;
     top: 100px;
     padding: 50px 30px;
