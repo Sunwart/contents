@@ -16,5 +16,5 @@ export default function modal(event) {
 
 function toggleModal() {
   modalka.classList.toggle('is-hidden');
-  document.querySelector('body').classList.toggle('modal-open');
+  document.querySelector('.films').classList.toggle('modal-open');
 }
