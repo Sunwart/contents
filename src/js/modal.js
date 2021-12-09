@@ -12,9 +12,26 @@ export default function modal(event) {
 
   allFilms.getSingleFilmByID(id).then(renderModal);
   toggleModal();
+
+  document.addEventListener('keyup', onPressEsc);
+
+  const bg = document.querySelector('.modal-bg');
+  bg.addEventListener('click', onBgClick);
 }
 
 function toggleModal() {
   modalka.classList.toggle('is-hidden');
-  document.querySelector('.films').classList.toggle('modal-open');
+}
+
+function onPressEsc(event) {
+  if (event.key === 'Escape') {
+    document.removeEventListener('keyup', onPressEsc);
+    toggleModal();
+  }
+}
+
+function onBgClick(event) {
+  if (event.currentTarget === event.target) {
+    toggleModal();
+  }
 }
