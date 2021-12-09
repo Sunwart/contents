@@ -2,6 +2,9 @@
   overflow: hidden;
   position: fixed;
   height: 1100px;
+  @media screen and (max-width: 767px) {
+    overflow: scroll;
+  }
 }
 
 .modal-bg {
@@ -13,7 +16,6 @@
   left: 0;
   border-bottom: 0;
   right: 0;
-  opacity: 1;
   transition: opacity 500ms var(--timing-function);
 }
 
@@ -40,16 +42,15 @@
   position: absolute;
   top: 20px;
   left: 50%;
-  transform: translate(-50%, 0);
+  transform: translate(-50%, 0) scale(1);
   padding: 50px 20px;
-  overflow: auto;
+  transition: transform 500ms var(--timing-function);
 
   @media screen and (min-width: 768px) {
     width: 620px;
     height: 562px;
     top: 230px;
     padding: 40px 30px;
-    overflow: hidden;
   }
 
   @media screen and (min-width: 1024px) {
@@ -58,6 +59,14 @@
     top: 100px;
     padding: 50px 30px;
   }
+
+  @media screen and (max-width: 767px) {
+    overflow: scroll;
+  }
+}
+
+.modal-bg.is-hidden .modal-container {
+  transform: translate(-50%, -50%) scale(0.5);
 }
 
 .film-info--align {
