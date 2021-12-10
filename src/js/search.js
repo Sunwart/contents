@@ -1,18 +1,21 @@
-import filmsAPIService from './API-service';
 import { allFilms } from '../index';
 import render from './rendering';
 
 export const searchFilms = function (event) {
-  document.querySelector('.page-input').value = 1;
-  allFilms.currentPage = 1;
-  allFilms.allPages = 0;
   event.preventDefault();
-  onValidSearchQuery();
-  if (event.target.firstElementChild.value === ' ' || event.target.firstElementChild.value === '') {
+
+  allFilms.searchQuery = event.target.firstElementChild.value.trim();
+  if (event.target.firstElementChild.value === ' ') {
     onInvalidSearchQuery();
     return;
   }
-  allFilms.searchQuery = event.target.firstElementChild.value;
+
+  onValidSearchQuery();
+
+  document.querySelector('.page-input').value = 1;
+  allFilms.currentPage = 1;
+  allFilms.allPages = 1;
+
   allFilms
     .getFilmsByQuery()
     .then(res => {
@@ -35,6 +38,7 @@ export const searchFilms = function (event) {
     })
     .catch(error => {
       onInvalidSearchQuery();
+      console.log(error);
     });
 };
 

@@ -49,7 +49,7 @@ export default function render(data) {
     .join(' ');
   const filmCards = document.querySelector('.films');
   filmCards.innerHTML = markup;
-  for (let arrID = 0; arrID < 20; arrID += 1) {
+  for (let arrID = 0; arrID < data.films.length; arrID += 1) {
     filmCards.children[arrID].addEventListener('click', modal);
   }
   return data;

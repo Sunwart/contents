@@ -3,7 +3,7 @@ import axios from 'axios';
 export default class filmsAPIService {
   constructor() {
     this.currentPage = 1;
-    this.lang = 'en';
+    this.lang = 'uk';
     this.allGenres = [{ id: 0, name: 'uncategorized' }];
     this.allPages = 1000;
     this.searchQuery = '';
@@ -11,7 +11,7 @@ export default class filmsAPIService {
 
   getTrendingFilms() {
     return axios.get(
-      `https://api.themoviedb.org/3/trending/movie/week?api_key=daf1fe8995a61d2fecc007eaa464ca98&page=${this.currentPage}&language=${this.lang}`,
+      `https://api.themoviedb.org/3/trending/movie/day?api_key=daf1fe8995a61d2fecc007eaa464ca98&page=${this.currentPage}&language=${this.lang}`,
     );
   }
 
