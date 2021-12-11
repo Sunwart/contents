@@ -2,6 +2,7 @@ import { allFilms } from '../index';
 import modal from './modal';
 
 export default function libraryFilms() {
+  allFilms.myLib = true;
   document.querySelector('.films').innerHTML = '';
   allFilms.FilmIDs = [];
 

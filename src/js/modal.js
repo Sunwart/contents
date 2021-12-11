@@ -21,7 +21,7 @@ export default function modal(event) {
 
 function toggleModal() {
   document.querySelector('[data-modal]').classList.toggle('is-hidden');
-  if (allFilms.myLib) {
+  if (allFilms.myLib === true) {
     libraryFilms();
   }
 }

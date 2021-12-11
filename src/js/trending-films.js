@@ -1,9 +1,7 @@
-import filmsAPIService from './API-service';
 import render from './rendering';
 import { allFilms } from '../index';
 
 export const popularFilms = function () {
-  allFilms.libPage = false;
   allFilms
     .getTrendingFilms()
     .then(res => {
