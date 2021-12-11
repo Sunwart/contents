@@ -87,7 +87,6 @@ function onWatchedBtnClick(event) {
   const filmID = Number(document.querySelector('.film-info__img').getAttribute('data-id'));
 
   if (event.target.classList.contains('added')) {
-    event.target.classList.remove('added');
     event.target.innerHTML = 'Add to watched';
     try {
       const currentWatched = JSON.parse(localStorage.getItem('watched'));
@@ -97,7 +96,6 @@ function onWatchedBtnClick(event) {
       return;
     }
   } else {
-    event.target.classList.add('added');
     event.target.innerHTML = 'Remove from watched';
     const watched = { ids: [] };
     try {
@@ -109,13 +107,13 @@ function onWatchedBtnClick(event) {
     }
     localStorage.setItem('watched', JSON.stringify(watched));
   }
+  event.target.classList.toggle('added');
 }
 
 function onQueueBtnClick(event) {
   const filmID = Number(document.querySelector('.film-info__img').getAttribute('data-id'));
 
   if (event.target.classList.contains('added')) {
-    event.target.classList.remove('added');
     event.target.innerHTML = 'Add to queue';
     try {
       const currentQueue = JSON.parse(localStorage.getItem('queue'));
@@ -125,7 +123,6 @@ function onQueueBtnClick(event) {
       return;
     }
   } else {
-    event.target.classList.add('added');
     event.target.innerHTML = 'Remove from queue';
     const queue = { ids: [] };
     try {
@@ -137,4 +134,5 @@ function onQueueBtnClick(event) {
     }
     localStorage.setItem('queue', JSON.stringify(queue));
   }
+  event.target.classList.toggle('added');
 }
