@@ -1,11 +1,10 @@
 import renderModal from './renred-modal';
 import { allFilms } from '../index';
 
-const closeModal = document.querySelector('[data-modal-close]');
-const modalka = document.querySelector('[data-modal]');
-closeModal.addEventListener('click', toggleModal);
-
 export default function modal(event) {
+  const closeModal = document.querySelector('[data-modal-close]');
+  closeModal.addEventListener('click', toggleModal);
+
   const id = event.currentTarget.getAttribute('data-modal-open');
 
   const openModal = document.querySelector(`[data-modal-open="${id}"]`);
@@ -20,7 +19,7 @@ export default function modal(event) {
 }
 
 function toggleModal() {
-  modalka.classList.toggle('is-hidden');
+  document.querySelector('[data-modal]').classList.toggle('is-hidden');
 }
 
 function onPressEsc(event) {

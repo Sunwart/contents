@@ -3,7 +3,7 @@ import axios from 'axios';
 export default class filmsAPIService {
   constructor() {
     this.currentPage = 1;
-    this.lang = 'uk';
+    this.lang = 'en';
     this.allGenres = [{ id: 0, name: 'uncategorized' }];
     this.allPages = 1000;
     this.searchQuery = '';
@@ -21,8 +21,8 @@ export default class filmsAPIService {
     );
   }
 
-  getSingleFilmByID(filmID) {
-    return axios.get(
+  async getSingleFilmByID(filmID) {
+    return await axios.get(
       `https://api.themoviedb.org/3/movie/${filmID}?api_key=daf1fe8995a61d2fecc007eaa464ca98&language=${this.lang}`,
     );
   }

@@ -40,6 +40,8 @@ export default function renderModal(res) {
             <span class="film-info__details">Raiting</span
             ><span class="details__value film-raiting">${res.data.vote_average}</span>
           </li>
+
+          
           <li class="film-info__details--elem">
             <span class="film-info__details">Votes</span><span class="details__value">${res.data.vote_count}</span>
           </li>

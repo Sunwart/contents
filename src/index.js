@@ -8,9 +8,11 @@ export const allFilms = new filmsAPIService();
 
 allFilms.getGenres();
 
-//ПЕРША ЗАГРУЗКА
-document.addEventListener('DOMContentLoaded', popularFilms);
+if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+  //ПЕРША ЗАГРУЗКА
+  document.addEventListener('DOMContentLoaded', popularFilms);
 
-//РЕАЛІЗАЦІЯ ПОШУКУ (без рендерінгу розмітки)
-const searchInput = document.querySelector('.search-form');
-searchInput.addEventListener('submit', searchFilms);
+  //РЕАЛІЗАЦІЯ ПОШУКУ
+  const searchInput = document.querySelector('.search-form');
+  searchInput.addEventListener('submit', searchFilms);
+}

@@ -1,6 +1,6 @@
 import { allFilms } from '../index';
 import { popularFilms } from './trending-films';
-
+import libraryFilms from './library';
 import render from './rendering';
 
 const pageInput = document.querySelector('.page-input');
@@ -40,21 +40,25 @@ function onForwardArrowClick(event) {
 }
 
 function reloadFilms() {
-  if (allFilms.allPages === 1000) {
-    popularFilms();
+  if (!allFilms.libPage) {
+    if (allFilms.allPages === 1000) {
+      popularFilms();
+    } else {
+      document.querySelector('.search-form').value = allFilms.searchQuery;
+      allFilms
+        .getFilmsByQuery()
+        .then(res => {
+          const data = {
+            total_pages: res.data.total_pages,
+            page: res.data.page,
+            films: res.data.results,
+          };
+          return data;
+        })
+        .then(render);
+    }
   } else {
-    document.querySelector('.search-form').value = allFilms.searchQuery;
-    allFilms
-      .getFilmsByQuery()
-      .then(res => {
-        const data = {
-          total_pages: res.data.total_pages,
-          page: res.data.page,
-          films: res.data.results,
-        };
-        return data;
-      })
-      .then(render);
+    libraryFilms();
   }
 }
 
