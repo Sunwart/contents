@@ -67,7 +67,7 @@ function renderLibrary() {
 
 function renderFilmCard(res) {
   //genres
-  const genres = res.data.genres.map(el => el.name).join(', ');
+  const genres = res.data.genres[0].name;
 
   // poster
   let poster_url;
@@ -84,6 +84,11 @@ function renderFilmCard(res) {
   } else {
     res.data.release_date = res.data.release_date.slice(0, 4);
     res.data.year = `|<span class="film-year">${res.data.release_date}</span>`;
+  }
+
+  //title
+  if (res.data.title.length > 35) {
+    res.data.title = res.data.title.slice(0, 35) + '...';
   }
 
   //film id
