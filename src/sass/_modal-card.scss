@@ -173,7 +173,7 @@
     width: 136px;
   }
 
-  &:disabled {
+  &.added {
     background-color: transparent;
     box-shadow: none;
     border-color: var(--color-add-dark);

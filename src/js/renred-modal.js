@@ -11,6 +11,27 @@ export default function renderModal(res) {
     poster_url = `https://www.themoviedb.org/t/p/w500/${res.data.poster_path}`;
   }
 
+  //buttons
+  let watchedClasses = '';
+  let addBtnText = '';
+  if (checkWatched(res.data.id)) {
+    watchedClasses = 'film-button added';
+    addBtnText = 'Remove from watched';
+  } else {
+    watchedClasses = 'film-button';
+    addBtnText = 'Add to watched';
+  }
+
+  let queueClasses = '';
+  let queueBtnText = '';
+  if (checkQueue(res.data.id)) {
+    queueClasses = 'film-button added';
+    queueBtnText = 'Remove from queue';
+  } else {
+    queueClasses = 'film-button';
+    queueBtnText = 'Add to queue';
+  }
+
   const markup = `<img src="${poster_url}" data-id="${res.data.id}" alt="${res.data.title} - movie poster" class="film-info__img" "/>
       <div>
         <h2 class="movie-title">${res.data.title}</h2>
@@ -36,8 +57,84 @@ export default function renderModal(res) {
           ${res.data.overview}
         </p>
         <ul class="buttons-container">
-          <li><button type="button" class="film-button">Add to watched</button></li>
-          <li><button type="button" class="film-button" disabled>Add to queue</button></li>
+          <li><button type="button" class="watched-btn ${watchedClasses}">${addBtnText}</button></li>
+          <li><button type="button" class="queue-btn ${queueClasses}">${queueBtnText}</button></li>
         </ul> `;
   document.querySelector('.film-info--align').innerHTML = markup;
+  document.querySelector('.watched-btn').addEventListener('click', onWatchedBtnClick);
+  document.querySelector('.queue-btn').addEventListener('click', onQueueBtnClick);
+}
+
+function checkWatched(filmId) {
+  try {
+    const currentWatched = JSON.parse(localStorage.getItem('watched'));
+    return currentWatched.ids.includes(filmId);
+  } catch (error) {
+    return false;
+  }
+}
+
+function checkQueue(filmId) {
+  try {
+    const currentQueue = JSON.parse(localStorage.getItem('queue'));
+    return currentQueue.ids.includes(filmId);
+  } catch (error) {
+    return false;
+  }
+}
+
+function onWatchedBtnClick(event) {
+  const filmID = Number(document.querySelector('.film-info__img').getAttribute('data-id'));
+
+  if (event.target.classList.contains('added')) {
+    event.target.classList.remove('added');
+    event.target.innerHTML = 'Add to watched';
+    try {
+      const currentWatched = JSON.parse(localStorage.getItem('watched'));
+      currentWatched.ids.splice(currentWatched.ids.indexOf(filmID), 1);
+      localStorage.setItem('watched', JSON.stringify(currentWatched));
+    } catch (error) {
+      return;
+    }
+  } else {
+    event.target.classList.add('added');
+    event.target.innerHTML = 'Remove from watched';
+    const watched = { ids: [] };
+    try {
+      const currentWatched = JSON.parse(localStorage.getItem('watched'));
+      currentWatched.ids.push(filmID);
+      watched.ids.push(...currentWatched.ids);
+    } catch (error) {
+      watched.ids.push(filmID);
+    }
+    localStorage.setItem('watched', JSON.stringify(watched));
+  }
+}
+
+function onQueueBtnClick(event) {
+  const filmID = Number(document.querySelector('.film-info__img').getAttribute('data-id'));
+
+  if (event.target.classList.contains('added')) {
+    event.target.classList.remove('added');
+    event.target.innerHTML = 'Add to queue';
+    try {
+      const currentQueue = JSON.parse(localStorage.getItem('queue'));
+      currentQueue.ids.splice(currentQueue.ids.indexOf(filmID), 1);
+      localStorage.setItem('queue', JSON.stringify(currentQueue));
+    } catch (error) {
+      return;
+    }
+  } else {
+    event.target.classList.add('added');
+    event.target.innerHTML = 'Remove from queue';
+    const queue = { ids: [] };
+    try {
+      const currentQueue = JSON.parse(localStorage.getItem('queue'));
+      currentQueue.ids.push(filmID);
+      queue.ids.push(...currentQueue.ids);
+    } catch (error) {
+      queue.ids.push(filmID);
+    }
+    localStorage.setItem('queue', JSON.stringify(queue));
+  }
 }
