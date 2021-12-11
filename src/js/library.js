@@ -7,17 +7,17 @@ export default function libraryFilms() {
 
   if (!document.querySelector('.watched').disabled) {
     try {
-      const watched = JSON.parse(localStorage.getItem('watched'));
-      allFilms.filmsNumber += watched.ids.length;
-      allFilms.FilmIDs.push(...watched.ids);
+      const queue = JSON.parse(localStorage.getItem('queue'));
+      allFilms.filmsNumber += queue.ids.length;
+      allFilms.FilmIDs.push(...queue.ids);
     } catch (error) {}
   }
 
   if (!document.querySelector('.queue').disabled) {
     try {
-      const queue = JSON.parse(localStorage.getItem('queue'));
-      allFilms.filmsNumber += queue.ids.length;
-      allFilms.FilmIDs.push(...queue.ids);
+      const watched = JSON.parse(localStorage.getItem('watched'));
+      allFilms.filmsNumber += watched.ids.length;
+      allFilms.FilmIDs.push(...watched.ids);
     } catch (error) {}
   }
 
