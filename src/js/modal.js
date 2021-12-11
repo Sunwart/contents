@@ -1,4 +1,5 @@
 import renderModal from './renred-modal';
+import libraryFilms from './library';
 import { allFilms } from '../index';
 
 export default function modal(event) {
@@ -20,6 +21,9 @@ export default function modal(event) {
 
 function toggleModal() {
   document.querySelector('[data-modal]').classList.toggle('is-hidden');
+  if (window.location.pathname === '/my-library.html') {
+    libraryFilms();
+  }
 }
 
 function onPressEsc(event) {
