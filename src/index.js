@@ -8,7 +8,7 @@ export const allFilms = new filmsAPIService();
 
 allFilms.getGenres();
 
-if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+if (window.location.pathname.contains('index.html')) {
   //ПЕРША ЗАГРУЗКА
   document.addEventListener('DOMContentLoaded', popularFilms);
 
