@@ -2,7 +2,7 @@ import './sass/main.scss';
 import { allFilms } from './index';
 import libraryFilms from './js/library';
 
-if (window.location.pathname.contains('my-library.html')) {
+if (window.location.pathname === '/contents/my-library.html') {
   allFilms.currentPage = 1;
   libraryFilms();
 }

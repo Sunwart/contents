@@ -4,7 +4,6 @@ import modal from './modal';
 export default function libraryFilms() {
   document.querySelector('.films').innerHTML = '';
   allFilms.FilmIDs = [];
-  allFilms.libPage = true;
 
   if (!document.querySelector('.watched').disabled) {
     try {

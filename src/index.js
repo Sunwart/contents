@@ -8,7 +8,10 @@ export const allFilms = new filmsAPIService();
 
 allFilms.getGenres();
 
-if (window.location.pathname.contains('index.html')) {
+if (
+  window.location.pathname === '/contents/index.html' ||
+  window.location.pathname === '/contents/'
+) {
   //ПЕРША ЗАГРУЗКА
   document.addEventListener('DOMContentLoaded', popularFilms);
 
@@ -16,3 +19,7 @@ if (window.location.pathname.contains('index.html')) {
   const searchInput = document.querySelector('.search-form');
   searchInput.addEventListener('submit', searchFilms);
 }
+
+document.querySelector('#home-page').addEventListener('click', event => {
+  allFilms.myLib = true;
+});

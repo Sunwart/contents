@@ -7,6 +7,7 @@ export default class filmsAPIService {
     this.allGenres = [{ id: 0, name: 'uncategorized' }];
     this.allPages = 1000;
     this.searchQuery = '';
+    this.myLib = false;
   }
 
   getTrendingFilms() {
