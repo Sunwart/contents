@@ -48,7 +48,17 @@ export default function libraryFilms() {
 }
 
 function renderLibrary() {
-  const elementsOnPage = allFilms.currentPage < allFilms.allPages ? 20 : allFilms.filmsNumber % 20;
+  let elementsOnPage;
+  if (allFilms.currentPage < allFilms.allPages) {
+    elementsOnPage = 20;
+  } else {
+    if (allFilms.filmsNumber % 20 === 0) {
+      elementsOnPage = 20;
+    } else {
+      elementsOnPage = allFilms.filmsNumber % 20;
+    }
+  }
+
   const startingElement = allFilms.currentPage * 20 - 20;
   for (let i = 0; i < elementsOnPage; i += 1) {
     allFilms.getSingleFilmByID(allFilms.FilmIDs[startingElement + i]).then(renderFilmCard);

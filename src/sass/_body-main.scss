@@ -9,10 +9,9 @@
   margin-bottom: 40px;
 
   @media screen and(min-width: 768px) {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 30px;
     margin-bottom: 50px;
-    flex: 1 auto;
   }
 
   @media screen and(min-width: 1024px) {
@@ -27,16 +26,6 @@
   height: 440px;
   border-radius: 5px;
   transition: transform var(--effect-duration) var(--timing-function);
-
-  @media screen and(min-width: 768px) {
-    width: 294px;
-
-    grid-column: span 2;
-
-    &:last-child:nth-child(3n - 2) {
-      grid-column-end: 4;
-    }
-  }
 
   @media screen and(min-width: 1024px) {
     width: 274px;
