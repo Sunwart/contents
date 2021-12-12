@@ -13,10 +13,14 @@ const queueFilterButton = document.querySelector('.queue');
 watchedFilterButton.addEventListener('click', event => {
   event.target.disabled = true;
   queueFilterButton.disabled = false;
+  allFilms.currentPage = 1;
+  document.querySelector('.page-input').value = 1;
   libraryFilms();
 });
 queueFilterButton.addEventListener('click', event => {
   event.target.disabled = true;
   watchedFilterButton.disabled = false;
+  allFilms.currentPage = 1;
+  document.querySelector('.page-input').value = 1;
   libraryFilms();
 });
