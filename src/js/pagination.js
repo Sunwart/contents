@@ -40,7 +40,7 @@ function onForwardArrowClick(event) {
 }
 
 function reloadFilms() {
-  if (!allFilms.libPage) {
+  if (!allFilms.myLib) {
     if (allFilms.allPages === 1000) {
       popularFilms();
     } else {
